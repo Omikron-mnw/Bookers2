@@ -1,0 +1,10 @@
+<% books.each do |book| %>
+<table>
+   <!--attachment_tag?-->
+  <%= attachment_image_tag book.user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg" %>
+  <p><%= book.user.name %></p>
+  <p><%= book.title %></p>
+  <p><%= book.body %></p>
+</table>
+<% end %>
+<%= paginate books %>

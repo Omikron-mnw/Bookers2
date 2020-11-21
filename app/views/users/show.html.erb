@@ -1,17 +1,10 @@
 <div class="profile-container">
-  <h3 class"profile-name"><%= @user.name %></h3>
   <%= attachment_image_tag @user_image, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
-   <% if @user.id == current_user.id %>
-    <p><%= link_to "Edit", edit_user_path(@user) %></p>
+  <h3 class="profile-name"> name   <%= @user.name %></h3>
+  <h3 class="profile-int"> introduction  <%= @user.introduction %></h3>
+  <% if @user.id == current_user.id %>
+    <p><i class="fas fa-user-cog"></i><%= link_to "Edit", edit_user_path(@user) %></p>
   <% end %>
 </div>
 
-<% @books.each do |book| %>
-<table>
-   <!--attachment_tag?-->
-  <p>user_name : <%= book.user.name %></p>
-  <p>title : <%= book.title %></p>
-  <p>opinion : <%= book.opinion %></p>
-</table>
-<% end %>
-<%= paginate @books %>
+<%= render 'books/list', books: @books %>
