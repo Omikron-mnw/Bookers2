@@ -1,11 +1,11 @@
 <% if @book.errors.any? %>
 <div id="error_explanation">
   <span><%= @book.errors.count %>件のエラーが発生しました</span>
-  <span>
-    <%= @book.errors.full_messages.each do |message| %>
-      <span><%= message %></span>
-    <% end %>
-  </span>
+  <!--<span>-->
+  <!--  %= @book.errors.full_messages.each do |message| %>-->
+  <!--    <span>%= message %></span>-->
+  <!--  % end %>-->
+  <!--</span>-->
 </div>
 <% end %>
 
