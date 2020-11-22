@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @books = @user.books.page(params[:page]).reverse_order
+    # @user = User.page(books_params[:page]).reverse_order
+    @books = @user.books
+    # @user = Kaminari.paginate_array(Book.find_all_by_book_id(params[:id])).page(params[:page]).per(5)
   end
 
   def index
+    @book = Book.new
+    @user = current_user
     @users = User.page(params[:page]).reverse_order
   end
 

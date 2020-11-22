@@ -1,10 +1,33 @@
-<div class="profile-container">
-  <%= attachment_image_tag @user_image, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
-  <h3 class="profile-name"> name   <%= @user.name %></h3>
-  <h3 class="profile-int"> introduction  <%= @user.introduction %></h3>
-  <% if @user.id == current_user.id %>
-    <p><i class="fas fa-user-cog"></i><%= link_to "Edit", edit_user_path(@user) %></p>
-  <% end %>
-</div>
+<!--<div class="container px-5 px-sm-0">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-3">-->
+<!--      <h2>User info</h2>-->
+<!--      %= attachment_image_tag @user_image, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>-->
+<!--      <table class="table">-->
+<!--        <tbody>-->
+<!--          <tr>-->
+<!--            <th class="profile-name"> name </th>-->
+<!--            <th class="profile-name"> %= @user.name %> </th>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <th class="profile-text"> introduction </th>-->
+<!--            <th class="profile-text"> %= @user.introduction %> </th>-->
+<!--           </tr>-->
+<!--         </tbody>-->
+<!--      </table>-->
+
+<!--      % if @user.id == current_user.id %>-->
+<!--        <p><i class="fas fa-user-cog"></i>%= link_to "Edit", edit_user_path(@user) %></p>-->
+<!--      % end %>-->
+<!--new book -->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<%= render 'users/sidebar', user: @user %>
+
+<%= render 'books/sidebar', book: @book %>
 
 <%= render 'books/list', books: @books %>
+
+<!--%= paginate @user.books %>-->
