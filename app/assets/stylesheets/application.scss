@@ -16,3 +16,47 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-item {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+table {
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 2px;
+  box-sizing: border-box;
+}
+
+.table th, .table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+th {
+  text-align: inherit;
+  text-align: internal center;
+  display: table-cell;
+  font-weight: bold;
+  vertical-align: inherit;
+}

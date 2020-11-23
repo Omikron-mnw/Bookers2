@@ -9,9 +9,20 @@
 </div>
 <% end %>
 
+<div class="sidebar">
+  <div class="container px-5 px-sm-0">
+    <div class="row">
 
-<%= render 'users/sidebar', user: @user%>
+      <div class="col-md-3">
+        <%= render 'users/sidebar', user: @user%>
 
-<%= render 'books/sidebar', book: @book%>
+        <%= render 'books/sidebar', book: @book%>
+      </div>
 
-<%= render 'books/list', books: @books %>
+
+      <%= render 'books/list', books: @books %>
+
+    </div>
+  </div>
+</div>
+

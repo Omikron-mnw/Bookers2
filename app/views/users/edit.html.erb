@@ -1,4 +1,12 @@
 <h2>User info</h2>
+
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <span><%= @user.errors.count %>件のエラーが発生しました</span>
+</div>
+<% end %>
+
+
 <%= form_with model:@user, local:true do |f| %>
 
   <label for = "inputName" >Name</label>
