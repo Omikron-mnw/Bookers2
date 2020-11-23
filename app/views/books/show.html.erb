@@ -1,29 +1,58 @@
 <div class="sidebar">
     <div class="container px-5 px-sm-0">
+        <div class="row">
+            <div class="col-md-3">
+                <%= render 'users/sidebar', user: @user %>
 
-        <%= render 'users/sidebar' %>
-
-        <%= render 'books/sidebar' %>
-
-    </div>
-</div>
-
-<div class="container ">
-    <div class="row">
-        <h2>Book detail</h2>
-        <div class="table">
-            <div>
-                <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+                <%= render 'books/sidebar', book: @new_book %>
             </div>
-            <div>
-                <%= @book.title %>
-            </div>
-            <div>
-                <%= @book.body %>
-            </div>
-            <div>
-                <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
+            <div class="col-md-8 offset-md-1">
+                <h2>Book detail</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Title</th>
+                            <th>Opinion</th>
+                            <% if @book.user == current_user %>
+                            <th></th>
+                            <% else %>
+                            <% end %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <%= attachment_image_tag @user, :profile_image, size:'60x60', format: 'jpg', fallback: "no_image.jpg" %><br>
+                                <%= link_to user_path(@user.id) do %>
+                                  <%= @book.user.name %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <%= @book.title %>
+                            </td>
+                            <td>
+                                <%= @book.body %>
+                            </td>
+                            <% if @book.user == current_user %>
+                            <td class="link1">
+                                <%= link_to "Edit", edit_book_path(@book) %>
+                            </td>
+                            <td class="link2">
+                                <%= link_to "Destroy", book_path(@book), method: :delete  %>
+                            </td>
+                            <% else %>
+                            <% end %>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
+
+<!--<div class="container ">-->
+
+
+
 </div>

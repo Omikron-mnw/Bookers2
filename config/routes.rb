@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #   registrations: 'users/registrations'
   # }
 
-  resources :books, only: [:new, :create, :index, :show, :destroy, :update]
+  resources :books, only: [:new, :create, :index, :show, :destroy, :update, :edit]
 
   resources :users, only: [:show, :edit, :update, :index]
 end
