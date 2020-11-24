@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   resources :books, only: [:new, :create, :index, :show, :destroy, :update, :edit]
 
-  resources :users, only: [:show, :edit, :update, :index]
+  resources :users, only: [:show, :edit, :update, :index, ]  #:ensure_correct_user
 end
