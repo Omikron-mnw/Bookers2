@@ -73,27 +73,12 @@
       </nav>
     </header>
     <!--% if user_signed_in? %>-->
-    <main><!-- class="mb-auto"-->
+    <main>
+      <!-- class="mb-auto"-->
     <p id="notice"><%= notice %></p>
-      <!--<div class="sidebar">-->
-      <!--  <div class="container px-5 px-sm-0">-->
-          <!--%= render 'users/sidebar' %>-->
-          <!--%= render 'books/sidebar' %>-->
-        <!--<div class="container">-->
-        <!--  <div class="row">-->
-        <!--    <div>-->
-               <!--render '' -->
-        <!--    </div>-->
-        <!--    <div>-->
-               <!--render '' -->
-        <!--    </div>-->
-        <!--  </div>-->
-        <!--</div>-->
-      <!--    </div>-->
-      <!--  </div>-->
-    <!--% else %>-->
-    <!--% end %>-->
+
     <%= yield %>
+
     </main>
     <footer><!-- class="bg-light text-dark pt-5 pb-4"-->
       <div class="container mt-5">
