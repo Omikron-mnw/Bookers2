@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3">
           <%= render 'users/sidebar', user: @user %>
-
+<!-- ここでは@modelを定義することで部分テンプレートでは@なしで記述する -->
           <%= render 'books/sidebar', book: @book %>
         </div>
 
