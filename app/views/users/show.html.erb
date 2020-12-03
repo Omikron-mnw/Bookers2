@@ -5,7 +5,7 @@
         <div class="col-md-3">
           <%= render 'users/sidebar', user: @user %>
 <!-- ここでは@modelを定義することで部分テンプレートでは@なしで記述する -->
-          <%= render 'books/sidebar', book: @book %>
+          <%= render 'books/sidebar', book: @new_book %>
         </div>
 
         <div class="col-md-8 offset-md-1">
@@ -16,6 +16,7 @@
                 <th></th>
                 <th>Title</th>
                 <th>Opinion</th>
+                <th></th>
                 <!--<th colspan="3"></th>-->
               </tr>
             </thead>
@@ -37,16 +38,16 @@
                 </td>
                 <td><%= book.body %></td>
                 <td>
-                  <% if @book.favorited_by?(current_user) %>
+                  <% if book.favorited_by?(current_user) %>
                     <p>
-                      <%= link_to book_favorites_path(@book), method: :delete do %>
-                        ♥<%= @book.favorites.count %>
+                      <%= link_to book_favorites_path(book), method: :delete do %>
+                        ♥<%= book.favorites.count %>
                       <% end %>
                     </p>
                   <% else %>
                     <p>
-                      <%= link_to book_favorites_path(@book), method: :post do %>
-                        ♡<%= @book.favorites.count %>
+                      <%= link_to book_favorites_path(book), method: :post do %>
+                        ♡<%= book.favorites.count %>
                       <% end %>
                     </p>
                   <% end %>

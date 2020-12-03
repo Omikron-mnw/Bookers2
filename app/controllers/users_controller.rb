@@ -2,7 +2,7 @@ class UsersController < ApplicationController #User::ApplicationController?
   before_action :ensure_correct_user,only: [:edit, :update]
 
   def show
-    @book = Book.new
+    @new_book = Book.new
     @user = User.find(params[:id])
     # @user = User.page(books_params[:page]).reverse_order
     @books = @user.books
