@@ -64,29 +64,27 @@
                         </tr>
                     </tbody>
                 </table>
-                <table>
-                    <tbody>
-                        <td class="comments">
-                            <% @book.book_comments.each do |book_comment| %>
-                                <p><%= attachment_image_tag @user, :profile_image, size:'30x30', format: 'jpg', fallback: "no_image.jpg" %></p>
-                                <%= book_comment.user.name %>
-                                <%= book_comment.created_at.strftime('%Y/%m/%d') %>
-                                <%= book_comment.comment %>
-                                <% if book_comment.user == current_user %>
-                                <div class="comment-delete">
-                                    <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete %>
-                                </div>
-                                <% end %>
+                <div>
+                    <div class="comments">
+                        <% @book.book_comments.each do |book_comment| %>
+                            <p><%= attachment_image_tag @user, :profile_image, size:'30x30', format: 'jpg', fallback: "no_image.jpg" %></p>
+                            <%= book_comment.user.name %>
+                            <%= book_comment.created_at.strftime('%Y/%m/%d') %>
+                            <%= book_comment.comment %>
+                            <% if book_comment.user == current_user %>
+                            <div class="comment-delete">
+                                <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete %>
+                            </div>
                             <% end %>
-                        </td>
-                        <td class="new-comment">
-                            <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
-                                <%= f.text_area :comment, rows:'5' %>
-                                <%= f.submit "送信" %>
-                            <% end %>
-                        </td>
-                    </tbody>
-                </table>
+                        <% end %>
+                    </div>
+                    <div class="new-comment">
+                        <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
+                            <%= f.text_area :comment, size:'50x5' %>
+                            <%= f.submit "送信" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
