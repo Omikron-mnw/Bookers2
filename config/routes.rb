@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   #   registrations: 'users/registrations'
   # }
 
-  resources :books, only: [:new, :create, :index, :show, :destroy, :update, :edit]
+  resources :books, only: [:new, :create, :index, :show, :destroy, :update, :edit] do
+    resource :favorites, only: [:create, :destroy]
+    # resources :post_comments, only: [:create, :destroy]
+  end
 
-  resources :users, only: [:show, :edit, :update, :index, ]  #:ensure_correct_user
+  resources :users, only: [:show, :edit, :update, :index]  #:ensure_correct_user
 end
