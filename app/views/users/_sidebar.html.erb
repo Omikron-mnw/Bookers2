@@ -11,7 +11,13 @@
             <tr>
               <th class="profile-text"> introduction </th>
               <th class="profile-text"> <%= user.introduction %> </th>
-             </tr>
+            </tr>
+            <tr>
+              <th class="profile_text"> follows </th>
+              <th>
+                <%= render 'relationships/follow_button', user: @user %>
+              </th>
+            </tr>
            </tbody>
         </table>
 

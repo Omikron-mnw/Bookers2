@@ -12,7 +12,7 @@ class UsersController < ApplicationController #User::ApplicationController?
 
   def index
     @book = Book.new
-    # @user = current_user
+    @user = current_user
     @users = User.page(params[:page]).reverse_order
   end
 
