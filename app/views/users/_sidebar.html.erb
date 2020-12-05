@@ -15,7 +15,18 @@
             <tr>
               <th class="profile_text"> follows </th>
               <th>
-                <%= render 'relationships/follow_button', user: @user %>
+                <%= link_to " #{user.followings.count} ", relationship_path(user.id) %>
+              </th>
+            </tr>
+            <tr>
+              <th class="profile_text"> followers </th>
+              <th>
+                <%= link_to " #{user.followers.count} ", relationships_path(id: user.id) %>
+              </th>
+            </tr>
+            <tr>
+              <th>
+              <%= render 'relationships/follow_button', user: @user %>
               </th>
             </tr>
            </tbody>

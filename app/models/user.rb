@@ -34,3 +34,5 @@ class User < ApplicationRecord
   attachment :profile_image
 
 end
+
+#binding.pry <--ターミナルの処理を止めたいところに入れる

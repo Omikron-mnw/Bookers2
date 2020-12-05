@@ -4,16 +4,14 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
 
-  # devise_for :users, controllers: {
-  #   sessions: 'users/sessions',
-  #   registrations: 'users/registrations'
-  # }
+  # get 'relationship/follows' => 'relationship#follows'
+  # get 'relationship/follers' => 'relationship#folloers'
 
   resources :books, only: [:new, :create, :index, :show, :destroy, :update, :edit] do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
   end
 
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy, :show, :index]
   resources :users, only: [:show, :edit, :update, :index]  #:ensure_correct_user
 end

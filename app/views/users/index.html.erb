@@ -8,6 +8,7 @@
         </div>
 
         <div class="col-md-8 offset-md-1">
+          <h2> Users </h2>
           <table class="table">
             <thead>
               <tr>
@@ -19,9 +20,32 @@
             <tbody>
               <% @users.each do |user| %>
               <tr>
-                <th><%= attachment_image_tag user, :profile_image, size:'40x40', fallback: "no_image.jpg" %></th>
-                <th><%= user.name %></th>
-                <th><%= link_to "Show", user_path(user.id) %></th>
+                <th>
+                  <%= attachment_image_tag user, :profile_image, size:'40x40', fallback: "no_image.jpg" %>
+                </th>
+                <th>
+                  <%= user.name %>
+                </th>
+                <td><%= " フォロー数: #{user.followings.count} " %></td>
+                <td><%= " フォロワー数: #{user.followers.count} " %></td>
+                <th>
+                  <% unless current_user == user %>
+                    <% if current_user.following?(user) %>
+                      <%= form_for(current_user.relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f| %>
+                        <%= hidden_field_tag :follow_id, user.id %>
+                        <%= f.submit 'unfollow' %>
+                      <% end %>
+                    <% else %>
+                      <%= form_for(current_user.relationships.build) do |f| %>
+                        <%= hidden_field_tag :follow_id, user.id %>
+                        <%= f.submit 'follow' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </th>
+                <th>
+                  <%= link_to "Show", user_path(user.id) %>
+                </th>
               </tr>
               <% end %>
             </tbody>
