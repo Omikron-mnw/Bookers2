@@ -75,8 +75,11 @@
 
     <main>
       <p id="notice"><%= notice %></p>
-      <!--<p class="success">%= success %></p>-->
-      <!--<p class="alert">%= alert %></p>-->
+
+      <% if user_signed_in? %>
+        <%= render 'users/search_form' %>
+      <% else %>
+      <% end %>
 
     <%= yield %>
       <!--<div id="container">-->

@@ -5,8 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :books, dependent: :destroy
+
+
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
+
 
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
@@ -27,6 +30,24 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
+
+
+  def User.search(search, user_or_book, how_search)
+    if user_or_book == "1"
+        if how_search == "1"
+            User.where(['name LIKE ?', "%#{search}%"])
+        elsif how_search == "2"
+            User.where(['name LIKE ?', "%#{search}"])
+        elsif how_search == "3"
+            User.where(['name LIKE ?', "#{search}%"])
+        elsif how_search == "4"
+            User.where(['name LIKE ?', "#{search}"])
+        else
+            User.all
+        end
+    end
+  end
+
 
   validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 20 }
   validates :introduction, length: { maximum: 50 }
