@@ -6,7 +6,7 @@ class UsersController < ApplicationController #User::ApplicationController?
     @user = User.find(params[:id])
     # @user = User.page(books_params[:page]).reverse_order
     @books = @user.books
-    # @user.profile_image
+    @book = Book.find(params[:id])
     # @user = Kaminari.paginate_array(Book.find_all_by_book_id(params[:id])).page(params[:page]).per(5)
   end
 

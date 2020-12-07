@@ -5,9 +5,9 @@
 
       <% if @user.errors.any? %>
       <div id="error_explanation">
-        <span><%= @user.errors.count %>件のエラーが発生しました</span>
+        <span><%= pluralize(@user.errors.count, "error") %></span>
       </div>
-      <ul>
+      <ul id="error_explanation">
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
