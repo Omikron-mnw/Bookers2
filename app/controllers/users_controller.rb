@@ -53,7 +53,7 @@ class UsersController < ApplicationController #User::ApplicationController?
 
   private
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction, :prefecture_name, :address_city, :address_street, :address_building)
+    params.require(:user).permit(:name, :profile_image) #, :introduction, :postcode, :prefecture_code, :address_city, :address_street, :address_building
   end
 
   # def user_params_update
