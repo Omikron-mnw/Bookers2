@@ -1,5 +1,6 @@
 class UsersController < ApplicationController #User::ApplicationController?
   before_action :ensure_correct_user,only: [:edit, :update]
+  # before_action :set_user
 
   def show
     @new_book = Book.new
@@ -13,7 +14,8 @@ class UsersController < ApplicationController #User::ApplicationController?
   def index
     @book = Book.new
     @user = current_user
-    @users = User.page(params[:page]).reverse_order
+    @users = User.all
+    # @users = User.page(params[:page]).reverse_order
   end
 
   def edit
@@ -51,9 +53,20 @@ class UsersController < ApplicationController #User::ApplicationController?
     end
   end
 
+
+  # def create
+  #   if @user.save
+  #     NotificationMailer.send_confirm_to_user(@user).delivery
+  #     redirect_to @user
+  #   else
+  #     render 'new'　　　　　　　　　　　＃うまくいかなかった
+  #   end
+  # end
+
+
   private
   def user_params
-    params.require(:user).permit(:name, :profile_image) #, :introduction, :postcode, :prefecture_code, :address_city, :address_street, :address_building
+    params.require(:user).permit(:name, :profile_image, :introduction) #, :postcode, :prefecture_code, :address_city, :address_street, :address_building
   end
 
   # def user_params_update
