@@ -13,11 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -79,23 +80,23 @@ th {
 
 
 
-// .image1 {
-//   background-image: url(test1.jpg);
-// }
-// .image2 {
-//   background-image: url(test2.jpg);
-// }
-// .image3 {
-//   background-image: url(test3.jpg);
-// }
-// .image4 {
-//   background-image: url(test4.jpg);
-// }
-// .image5 {
-//   background-image: url(test5.jpg);
-// }
+.image1 {
+  background-image: url(test1.jpg);
+}
+.image2 {
+  background-image: url(test2.jpg);
+}
+.image3 {
+  background-image: url(test3.jpg);
+}
+.image4 {
+  background-image: url(test4.jpg);
+}
+.image5 {
+  background-image: url(test5.jpg);
+}
 
-// #container{
-//   height: 500px;
-//   bottom: 50px;
-// }
+#container{
+  height: 500px;
+  bottom: 50px;
+}
