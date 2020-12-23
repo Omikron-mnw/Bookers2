@@ -36,6 +36,8 @@ class UsersController < ApplicationController #User::ApplicationController?
     end
   end
 
+  #binding.pry <--ターミナルの処理を止めたいところに入れる
+
   def search
     @user_or_book = params[:option]
     @how_search = params[:choice]

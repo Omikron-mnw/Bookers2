@@ -74,4 +74,3 @@ class User < ApplicationRecord
 
 end
 
-#binding.pry <--ターミナルの処理を止めたいところに入れる
