@@ -55,7 +55,7 @@ class UsersController < ApplicationController #User::ApplicationController?
     end
   end
 
-
+  # Mailer機能/テスト環境ではOK/本番環境では×
   # def create
   #   if @user.save
   #     NotificationMailer.send_confirm_to_user(@user).delivery
