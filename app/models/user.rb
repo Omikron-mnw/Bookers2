@@ -70,6 +70,7 @@ class User < ApplicationRecord
   # validates :address_street, presence: true
   # validates :address_building, presence: true
 
+　#ユーザーのイメージ写真ID
   attachment :profile_image
 
 end
