@@ -1,6 +1,8 @@
 class RelationshipsController < ApplicationController
   before_action :set_user,except: [:show]
 
+
+  # フォロー機能　follow_id,unfollow_idを使ってもいいかも
   def create
     following = current_user.follow(@user)
     if following.save
